@@ -46,8 +46,11 @@ const App = () => {
   const [selected, setSelected] = useState(0)
   const [points, setPoints] = useState(new Array(6).fill(0))
 
+  var y = (x) =>{
+    return x * 3
+  }
   
-  //console.log(points)
+  console.log(y(10));
 
   var x
 
@@ -62,8 +65,10 @@ const App = () => {
    
    copy[selected] += 1 
    setPoints(copy)
-   console.log(copy)
+   //console.log(copy)
   }
+  
+  
   
   return (
     <div>

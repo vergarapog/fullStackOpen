@@ -1,78 +1,57 @@
 import React from 'react'
-
-const Header = (props) => {
-    return (
-    <div>
-      <p>
-       {props.title}
-      </p>
-    </div>
-    )
-}
-
-const Content = (props) => {
-  
-  console.log(props)
-  const[first, second, third] = props.parts
-return (
-  <div>
-      <Part part={first.name} exe={first.exercises} />
-      <Part part={second.name} exe={second.exercises} />
-      <Part part={third.name} exe={third.exercises} />
-    </div>
-)
-}
-
-const Part = (props) => {
-  return (
-    <>
-      <p>
-      {props.part} {props.exe}
-      </p>
-    </>
-    )
-
-}
-
-const Total = (props) => {
-
-  const[first, second, third] = props.parts
-  return (
-    <div>
-      <p>
-      Number of exercises {first.exercises + second.exercises + third.exercises}
-      </p>
-    </div>
-    )
-
-}
+import Course from './components/Course'
 
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
+  const courses = [
+    {
+      name: 'Half Stack application development',
+      id: 1,
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    }, 
+    {
+      name: 'Node.js',
+      id: 2,
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
+        }
+      ]
+    }
+  ]
 
-  
 
   return (
     <div>
-      <h1><Header title={course.name} /></h1>
-      <Content parts={course.parts}/>
-      <Total parts={course.parts} />
+      <h1>Web development curriculum</h1>
+    <Course courses={courses}/>
     </div>
   )
 }
